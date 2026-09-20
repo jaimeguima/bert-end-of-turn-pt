@@ -40,7 +40,16 @@ A fine-tuned `bert-base-portuguese-cased` model that reads an incoming message a
 
 ### Dataset
 
-Base dataset: [`RichardSakaguchiMS/brazilian-customer-service-conversations`](https://huggingface.co/datasets/RichardSakaguchiMS/brazilian-customer-service-conversations) — real Brazilian customer service chat logs.
+- **Base Dataset:** [`RichardSakaguchiMS/brazilian-customer-service-conversations`](https://huggingface.co/datasets/RichardSakaguchiMS/brazilian-customer-service-conversations), containing real Brazilian customer service chat logs across diverse industry verticals:
+  - **E-commerce & Retail**
+  - **Financial Services** 
+  - **Telecom**
+  - **Healthcare**
+  - **Education**
+  - **Restaurants & Delivery**
+  - **Real Estate**
+  - **Technology & SaaS**
+- **Custom Supplementary Dataset:** In addition to the public corpus, a tailored custom dataset (`extra_data` in [`BERT_END_OF_TURN.ipynb`](./BERT_END_OF_TURN.ipynb)) was incorporated to represent domain-specific intents, short chat interactions, and targeted phrases.
 
 ### Data Augmentation
 
@@ -106,8 +115,8 @@ The BERT model classifies each message on send:
 A live BERT classification badge updates in the input area as you type.
 
 ### Screenshots
-![Smart Routing Demo](assets/image_demo1.png)
-![Wait and Send Demo](assets/image_demo2.png)
+![Smart Routing Demo](assets/image_mode1.png)
+![Wait and Send Demo](assets/image_mode2.png)
 
 ### How to Run the Demo
 
