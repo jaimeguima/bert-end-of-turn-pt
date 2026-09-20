@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BERT End-of-Turn Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header-left">
+      <span class="header-title">BERT End-of-Turn Demo</span>
+      <span class="header-sub">bert-base-portuguese-cased · binary classifier</span>
+    </div>
+    <div class="mode-toggle">
+      <button id="btn-mode1" class="mode-btn active" onclick="setMode(1)">Mode 1 · Smart Routing</button>
+      <button id="btn-mode2" class="mode-btn" onclick="setMode(2)">Mode 2 · Wait &amp; Send</button>
+    </div>
+  </header>
+
+  <!-- Mode description -->
+  <div class="mode-description" id="mode-desc">
+    <span id="mode-desc-text">
+      <strong>Mode 1:</strong> If BERT detects an incomplete sentence → routes to <em>small model</em>. If complete →
+      routes to <em>large model</em>.
+    </span>
+  </div>
+
+  <!-- Chat -->
+  <main class="chat-wrapper">
+    <div class="chat-container" id="chat-container">
+      <div class="empty-state" id="empty-state">
+        <p>Send a message to see the BERT classifier in action.</p>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="input-area">
+      <div class="bert-live" id="bert-live">
+        <span id="bert-live-text">—</span>
+      </div>
+      <div class="input-row">
+        <textarea id="user-input" placeholder="Type your message..." rows="1" onkeydown="handleKeydown(event)"
+          oninput="handleInput()"></textarea>
+        <button class="send-btn" id="send-btn" onclick="handleSend()">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
